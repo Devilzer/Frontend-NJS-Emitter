@@ -9,7 +9,7 @@ function Login({setType}) {
         password:""
     });
     const handleSubmit =()=>{
-        return;
+        console.log(value);
     }
     return (
         <div className="login-container">
