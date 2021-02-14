@@ -1,16 +1,37 @@
 import React,{useState} from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import bcrypt from "bcryptjs";
+import { loginUser } from "../redux/actions";
 
 function Login({setType}) {
     const dispatch = useDispatch();
-   
+    var users = JSON.parse(localStorage.getItem("users")) || [];
     const [value, setValue] = useState({
         username:"",
         password:""
     });
-    const handleSubmit =()=>{
-        console.log(value);
-    }
+    const handleSubmit =async()=>{
+        if(value.username==="" || value.password===""){
+            console.log("Please fill the values!");
+            return;
+        }
+        var index = users.findIndex(user=>user.username===value.username);
+        if(index===-1){
+            console.log("Invalid Username or password!");
+            return;
+        }else{
+            const valid = await bcrypt.compare(value.password,users[index].password);
+            if(valid){
+                console.log("logged");
+                dispatch(loginUser());
+            }
+            else{
+                console.log("Invalid Username or password!");
+                return;
+            }
+        }
+    };
+
     return (
         <div className="login-container">
             <div className="contents">
