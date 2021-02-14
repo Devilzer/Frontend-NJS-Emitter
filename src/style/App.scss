@@ -9,4 +9,135 @@ body {
 }
 
 .App {
+  width: 100%;
+  height: 100%;
+  .login-container {
+    position: absolute;
+    height: 500px;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0 0 5px 1px grey;
+    display: flex;
+    flex-direction: column;
+    .contents {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 90%;
+      color: #131921;
+      .wtext {
+        margin-top: 15%;
+        width: 80%;
+      }
+      h1 {
+        margin: 0;
+        width: 75%;
+      }
+      input {
+        width: 80%;
+        outline: none;
+        background-color: transparent;
+        padding: 5px 0;
+        font-size: 20px;
+        border: none;
+        margin-top: 25px;
+        border-bottom: 2.5px solid #131921;
+      }
+      button {
+        width: 70%;
+        margin-top: 25px;
+        font-size: 20px;
+        padding: 10px 0;
+        background-color: #131921;
+        color: #f5f5f5;
+        outline: none;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+    }
+    .switch {
+      text-align: center;
+      line-height: 50px;
+      background-color: #131921;
+      height: 10%;
+      color: #f5f5f5;
+      font-size: 30px;
+      font-weight: 500;
+    }
+    .switch:hover {
+      cursor: pointer;
+      background-color: #0e1218;
+    }
+  }
+
+  .signup-container {
+    position: absolute;
+    height: 500px;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #131921;
+    box-shadow: 0 0 5px 1px grey;
+    display: flex;
+    flex-direction: column;
+    .contents {
+      background-color: #131921;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 90%;
+      color: #f5f5f5;
+      .wtext {
+        background-color: #131921;
+        margin-top: 15%;
+        width: 80%;
+      }
+      h1 {
+        background-color: #131921;
+        margin: 0;
+        width: 75%;
+      }
+      input {
+        width: 80%;
+        outline: none;
+        background-color: transparent;
+        padding: 5px 0;
+        font-size: 20px;
+        border: none;
+        color: #f5f5f5;
+        margin-top: 25px;
+        border-bottom: 2.5px solid #f5f5f5;
+      }
+      button {
+        width: 70%;
+        margin-top: 25px;
+        font-size: 20px;
+        padding: 10px 0;
+        background-color: #f5f5f5;
+        color: #131921;
+        outline: none;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+    }
+    .switch {
+      text-align: center;
+      line-height: 50px;
+      background-color: #f5f5f5;
+      height: 10%;
+      color: #131921;
+      font-size: 30px;
+      font-weight: 500;
+    }
+    .switch:hover {
+      cursor: pointer;
+      background-color: white;
+    }
+  }
 }
