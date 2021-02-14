@@ -2,6 +2,7 @@ import React,{useEffect} from 'react';
 import { useDispatch , useSelector } from "react-redux";
 import { logoutUser } from "../redux/actions";
 import { w3cwebsocket } from "websocket";
+import crypto from "crypto";
 
 const client = new w3cwebsocket('ws://127.0.0.1:8000');
 
@@ -15,7 +16,7 @@ function Home() {
         const destCities = ["Mumbai","Delhi","Bangalore","Kolkata","Indore","Bhopal","Vadodara","Ghaziabad","Amritsar","Srinagar"];
         let iv = "1234123412341234";
         let key = '12345678123456781234567812345678';
-        
+
         var dataString = "";
         for(let i=0 ;i <10 ;i++){
             var object = {
@@ -23,18 +24,31 @@ function Home() {
                 origin : originCities[Math.floor(Math.random()*originCities.length)],
                 destination : destCities[Math.floor(Math.random()*destCities.length)]
             };
-            var secret_key = require("crypto").createHash("sha256").update(JSON.stringify(object)).digest('hex');
-            console.log(secret_key);
+            var secret_key = crypto.createHash("sha256").update(JSON.stringify(object)).digest('hex');
+            var data = {
+                name : object.name,
+                origin : object.origin,
+                destination : object.destination,
+                secret_key : secret_key
+            };
+            let cipher = crypto.createCipheriv('aes-256-ctr', key, iv);
+            let encrypted = cipher.update(JSON.stringify(data), 'utf-8', 'hex');
+            encrypted += cipher.final('hex');
+            if(i===0 ){
+                dataString = dataString + encrypted;
+            }else{
+                dataString = dataString +"|"+encrypted;
+            }
         }
-        // client.send(JSON.stringify({
-        //   message : "hello there"
-        // }));
+        console.log(dataString);
+        client.send(dataString);
     };
     useEffect(() => {
         client.onopen=()=>{
             console.log("connected to the server");
           };
-          setInterval(emitter, 2000);
+        //   setInterval(emitter, 2000);
+        emitter();
     }, []);
     
       
