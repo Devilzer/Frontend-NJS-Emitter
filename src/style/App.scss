@@ -162,4 +162,27 @@ body {
       color: #f05454;
     }
   }
+  .results {
+    width: 70%;
+    margin: auto;
+    margin-top: 25px;
+    td,
+    th {
+      border: 1px solid #202731;
+      padding: 8px;
+    }
+    tr:nth-child(even) {
+      background-color: #cbe5ff;
+    }
+    tr:hover {
+      background-color: #bacbdb;
+    }
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4caf50;
+      color: white;
+    }
+  }
 }

@@ -3,12 +3,14 @@ import { useDispatch , useSelector } from "react-redux";
 import { logoutUser } from "../redux/actions";
 import { w3cwebsocket } from "websocket";
 import crypto from "crypto";
+import { addData } from "../redux/actions";
 
 const client = new w3cwebsocket('ws://127.0.0.1:8000');
 
 function Home() {
     
     const dispatch = useDispatch();
+    const data = useSelector(state => state.data);
 
     const emitter=()=> {
         const names = ["Deepak Jena","Tony Stark","Bruce Wayne","Steven Rogers","Matthew Murdock","Barry Allen","Bruce Banner","Peter Parker","Clark Kent","Frank Castle"];
@@ -54,14 +56,12 @@ function Home() {
       
       client.onmessage = (message) => {
         const dataFromServer = JSON.parse(message.data);
-        console.log('got reply! ', dataFromServer);
+        dispatch(addData(dataFromServer));
+        console.log(dataFromServer);
       };
       client.onclose = function() {
         console.log('Client Closed.');
         };
-      
-
-      
 
       const handleLogout = ()=>{
         dispatch(logoutUser());
@@ -77,7 +77,28 @@ function Home() {
                     LogOut
                 </h2>
             </div>
-            
+            <table className="results">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                </tr>
+            </thead>
+            <tbody>
+            {data.map((data,index)=>(
+                
+                    <tr key={index}>
+                        <td>{index+1}</td>
+                        <td>{data.name}</td>
+                        <td>{data.origin} </td>
+                        <td>{data.destination}</td>
+                    </tr>
+                
+            ))}
+            </tbody>
+            </table>
         </>
     )
 }

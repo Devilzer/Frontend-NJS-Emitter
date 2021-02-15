@@ -10,3 +10,10 @@ export const logoutUser = ()=>{
         type :"LOGOUT_USER"
     };
 };
+
+export const addData = (data)=>{
+    return{
+        type : "ADD_DATA",
+        payload : data
+    };
+};
