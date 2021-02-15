@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Frontend-NJS-Emitter/static/css/main.5fbeb1ac.chunk.css",
+    "main.js": "/Frontend-NJS-Emitter/static/js/main.4ea08a80.chunk.js",
+    "main.js.map": "/Frontend-NJS-Emitter/static/js/main.4ea08a80.chunk.js.map",
+    "runtime-main.js": "/Frontend-NJS-Emitter/static/js/runtime-main.095bba9c.js",
+    "runtime-main.js.map": "/Frontend-NJS-Emitter/static/js/runtime-main.095bba9c.js.map",
+    "static/css/2.9d088f77.chunk.css": "/Frontend-NJS-Emitter/static/css/2.9d088f77.chunk.css",
+    "static/js/2.89304558.chunk.js": "/Frontend-NJS-Emitter/static/js/2.89304558.chunk.js",
+    "static/js/2.89304558.chunk.js.map": "/Frontend-NJS-Emitter/static/js/2.89304558.chunk.js.map",
+    "index.html": "/Frontend-NJS-Emitter/index.html",
+    "static/css/2.9d088f77.chunk.css.map": "/Frontend-NJS-Emitter/static/css/2.9d088f77.chunk.css.map",
+    "static/css/main.5fbeb1ac.chunk.css.map": "/Frontend-NJS-Emitter/static/css/main.5fbeb1ac.chunk.css.map",
+    "static/js/2.89304558.chunk.js.LICENSE.txt": "/Frontend-NJS-Emitter/static/js/2.89304558.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.095bba9c.js",
+    "static/css/2.9d088f77.chunk.css",
+    "static/js/2.89304558.chunk.js",
+    "static/css/main.5fbeb1ac.chunk.css",
+    "static/js/main.4ea08a80.chunk.js"
+  ]
+}
