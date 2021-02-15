@@ -6,7 +6,7 @@ import crypto from "crypto";
 import { addData , updateSearch } from "../redux/actions";
 
 //creating connection with the socket server.
-const client = new w3cwebsocket('ws://njs-listener-socket.herokuapp.com');
+const client = new w3cwebsocket('wss://njs-listener-socket.herokuapp.com');
 
 function Home() {
     
