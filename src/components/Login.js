@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { useDispatch } from "react-redux";
 import bcrypt from "bcryptjs";
 import { loginUser } from "../redux/actions";
+import { showNotification } from "../config/noty";
 
 function Login({setType}) {
     const dispatch = useDispatch();
@@ -12,12 +13,12 @@ function Login({setType}) {
     });
     const handleSubmit =async()=>{
         if(value.username==="" || value.password===""){
-            console.log("Please fill the values!");
+            showNotification("Please fill the values!");
             return;
         }
         var index = users.findIndex(user=>user.username===value.username);
         if(index===-1){
-            console.log("Invalid Username or password!");
+            showNotification("Invalid Username or password!");
             return;
         }else{
             const valid = await bcrypt.compare(value.password,users[index].password);
@@ -26,7 +27,7 @@ function Login({setType}) {
                 dispatch(loginUser());
             }
             else{
-                console.log("Invalid Username or password!");
+                showNotification("Invalid Username or password!");
                 return;
             }
         }

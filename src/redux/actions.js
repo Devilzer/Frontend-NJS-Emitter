@@ -1,11 +1,14 @@
+import { showNotification } from "../config/noty";
 
 export const loginUser = ()=>{
+    showNotification("Login Successful");
     return {
         type : "LOGIN_USER"
     };
 };
 
 export const logoutUser = ()=>{
+    showNotification("Logout Successful");
     return{
         type :"LOGOUT_USER"
     };

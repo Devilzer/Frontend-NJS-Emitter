@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { useDispatch } from "react-redux";
 import bcrypt from "bcryptjs";
+import { showNotification } from "../config/noty";
 
 function SignUp({setType}) {
     var users = JSON.parse(localStorage.getItem("users")) || [];
@@ -11,7 +12,7 @@ function SignUp({setType}) {
     });
     const handleSubmit =async ()=>{
         if(value.username==="" || value.password===""){
-            console.log("please fill all the fields!");
+            showNotification("please fill all the fields!");
             return;
         }
         var index = users.findIndex(user=>user.username===value.username);
@@ -25,7 +26,7 @@ function SignUp({setType}) {
             localStorage.setItem("users",JSON.stringify(users));
             setValue({...value,username:"",password:""});
         }else{
-            console.log("user already exists!");
+            showNotification("user already exists!");
             return;
         }
     };
