@@ -1,4 +1,4 @@
-{
+{ "homepage": "http://Devilzer.github.io/Frontend-NJS-Emitter",
   "name": "client",
   "version": "0.1.0",
   "private": true,
@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.1",
     "bcryptjs": "^2.4.3",
+    "gh-pages": "^3.1.0",
     "node-sass": "^4.14.1",
     "noty": "^3.2.0-beta",
     "react": "^17.0.1",
@@ -19,6 +20,8 @@
     "websocket": "^1.0.33"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
