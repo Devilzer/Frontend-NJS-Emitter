@@ -162,10 +162,24 @@ body {
       color: #f05454;
     }
   }
+  .search-container {
+    width: 50%;
+    margin: auto;
+    margin-top: 25px;
+    input {
+      width: 100%;
+      font-size: 16px;
+      padding: 5px;
+      outline: none;
+      background-color: transparent;
+      border: 2.5px solid #30475e;
+    }
+  }
   .results {
     width: 70%;
     margin: auto;
     margin-top: 25px;
+    margin-bottom: 25px;
     td,
     th {
       border: 1px solid #202731;

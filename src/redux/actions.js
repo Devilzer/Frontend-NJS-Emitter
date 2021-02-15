@@ -17,3 +17,10 @@ export const addData = (data)=>{
         payload : data
     };
 };
+
+export const updateSearch = (value)=>{
+    return{
+        type : "UPDATE_SEARCH",
+        payload : value
+    };
+};

@@ -1,6 +1,7 @@
 const initialState = {
     data:[],
-    isLoggedIn :false
+    isLoggedIn :false,
+    search:""
 };
 
 const reducer = (state = initialState,action)=>{
@@ -19,6 +20,11 @@ const reducer = (state = initialState,action)=>{
             return{
                 ...state,
                 data : [...state.data,...action.payload]
+            };
+        case "UPDATE_SEARCH":
+            return{
+                ...state,
+                search : action.payload
             };
         default:
             return state;
